@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<petrinet>
+       <place>		
+		<name>buffer</name>
+		<token>0</token>
+       </place>
+	       
+       <place>		
+		<name>server</name>
+		<token>0</token>				
+       </place>
+	<place>		
+		<name>served</name>
+		<token>0</token>				
+       </place>
+	<place>		
+		<name>serverIdle</name>
+		<token>0</token>				
+       </place>
+		
+	
+	<exptransition>		
+		<name>arrive</name>		
+		<delay>4</delay>
+		<outplace>
+			<name>buffer</name>			
+		</outplace>		
+	</exptransition>
+	<immedtransition>
+		<name>moveToServer</name>		
+		<inplace>			
+			<name>buffer</name>			
+		</inplace>
+		<inhibitor>			
+			<name>serverIdle</name>	
+			<arc>2</arc>		
+		</inhibitor>			
+		
+		<outplace>
+			<name>serverIdle</name>			
+		</outplace>	
+		<outplace>
+			<name>server</name>			
+		</outplace>
+	</immedtransition>
+	<exptransition>		
+		<name>serveDemand</name>
+		<servertype>infinite</servertype>		
+		<delay>2</delay>
+		<inplace>			
+			<name>server</name>
+			<arc>1</arc>
+		</inplace>
+		<inplace>			
+			<name>serverIdle</name>
+			<arc>1</arc>
+		</inplace>	
+		<outplace>
+			<name>served</name>
+			<arc>1</arc>
+		</outplace>
+			
+	</exptransition>	
+	
+       <system>		
+		<method>analysis</method>
+		<terminatingtime>10000</terminatingtime>
+		<confidence>0.95</confidence>					
+		<batch>5000</batch>
+		<accuracy>0.05</accuracy>		
+		<avgtoken>server</avgtoken>	
+		<avgtoken>buffer</avgtoken>
+		<difftoken>served</difftoken>
+	</system>	
+</petrinet>
