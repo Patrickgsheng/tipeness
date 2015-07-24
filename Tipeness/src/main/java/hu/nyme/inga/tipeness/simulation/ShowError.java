@@ -63,7 +63,7 @@ public class ShowError {
                 System.out.println("The value of transient accuracy is not valid!");
                 break;
             case wrongRelErrorValue:
-                System.out.println("The value of accuracy is not valid!");
+                System.out.println("The given value of the maximal relative error is not valid!");
                 break;
             case wrongBatchLength:
                 System.out.println("The given length of batches is not valid!");

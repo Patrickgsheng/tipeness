@@ -62,12 +62,13 @@
 			
 	</exptransition>	
 	
-       <system>		
-		<method>analysis</method>
+       <system>	
+		<minsamplesize>200</minsamplesize>	
+		<method>batch</method>
 		<terminatingtime>10000</terminatingtime>
-		<confidence>0.95</confidence>					
+		<confidencelevel>0.95</confidencelevel>					
 		<batch>5000</batch>
-		<accuracy>0.05</accuracy>		
+		<maxrelerror>0.05</maxrelerror>		
 		<avgtoken>server</avgtoken>	
 		<avgtoken>buffer</avgtoken>
 		<difftoken>served</difftoken>

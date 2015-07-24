@@ -685,6 +685,7 @@ public class ConfigParser {
             numberOfNString = "Number of batches: " + Integer.toString(mUnitStat.numberOfN);
             sumTime = mUnitStat.sumLength;
         }
+        sb.append("Minimal sample size: ").append(minSampleSize).append(nl);
         sb.append("Warmup time: ").append(warmupLength).append(nl);
         sb.append("Accuracy: ").append(maxRelError).append(nl);
         sb.append("Confidencelevel: ").append(1 - alpha).append(nl);
