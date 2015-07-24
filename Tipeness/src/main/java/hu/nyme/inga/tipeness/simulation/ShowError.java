@@ -14,7 +14,7 @@ public class ShowError {
 
         wrongInputFilePath, wrongTokenNum, wrongPlaceName, wrongTransName, wrongPriority,
         wrongArcWeight, wrongDelay, wrongIOPlaceName, wrongServerType, wrongSignPlace, nullSignPlace,
-        wrongNumberOfN, wrongAlphaValue, wrongTransientAccuracy, wrongAccuracy, wrongBatchLength, wrongTokenPlace,
+        wrongMinSampleSize, wrongAlphaValue, wrongTransientAccuracy, wrongRelErrorValue, wrongBatchLength, wrongTokenPlace,
         wrongAvgTokenPlace, wrongDiffTokenPlace, wrongMemoryPolicy, wrongTransWeight, wrongMemoryType, wrongGammaParam,
         wrongDetParam, wrongNormDistParam, wrongTerminatingTime, wrongMethodType, wrongWarmupLength,
         noWatchAvgOrDiffPlaceAtBatch, noWatchTokenOrAvgPlaceAtRepDel, wrongFireCondition, wrongFirePolicyTransname
@@ -50,7 +50,7 @@ public class ShowError {
             case wrongSignPlace:
                 System.out.println("The name of a significant place is not valid!");
                 break;
-            case wrongNumberOfN:
+            case wrongMinSampleSize:
                 System.out.println("The value of minimal number of batches/replications is not valid!");
                 break;
             case wrongAlphaValue:
@@ -62,7 +62,7 @@ public class ShowError {
             case wrongTransientAccuracy:
                 System.out.println("The value of transient accuracy is not valid!");
                 break;
-            case wrongAccuracy:
+            case wrongRelErrorValue:
                 System.out.println("The value of accuracy is not valid!");
                 break;
             case wrongBatchLength:

@@ -20,7 +20,7 @@ public class BatchStatistic extends BatchAbstractStatistic {
 
     @Override
     public boolean isAccurate() {
-        if (this.numberOfN < getConfigParser().getMinNumOfN()) {
+        if (this.numberOfN < getConfigParser().getMinSampleSize()) {
             return false;
         }
         return (super.areAvgTokenNumEstimatesAccurate() && areAvgTokenDiffEstimatesAccurate());
@@ -33,7 +33,7 @@ public class BatchStatistic extends BatchAbstractStatistic {
         }
         for (String placeName : currentConfig.getWatchDiffTokenList()) {
             if (!Statistics.isAccurateEV(estimatedAvgDiffPlaceList.get(placeName).avg, numberOfN,
-                    estimatedAvgDiffPlaceList.get(placeName).variance, currentConfig.getAccuracy(), currentConfig.getAlpha())) {
+                    estimatedAvgDiffPlaceList.get(placeName).variance, currentConfig.getMaxRelError(), currentConfig.getAlpha())) {
                 return false;
             }
         }

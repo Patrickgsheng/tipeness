@@ -30,7 +30,7 @@ public class AnalysisStatistic extends BatchAbstractStatistic {
 
     @Override
     public boolean isAccurate() {
-        if (numberOfN < getConfigParser().getMinNumOfN()) {
+        if (numberOfN < getConfigParser().getMinSampleSize()) {
             return false;
         }
         for (String placeName : getConfigParser().getPlaces().keySet()) {
@@ -75,13 +75,13 @@ public class AnalysisStatistic extends BatchAbstractStatistic {
         if (estimatedAvgDiffPlaceList.get(placeName).avg == 0 || estimatedAvgPlaceList.get(placeName).avg == 0) {
             return StabilityEnum.stable;
         } else if (Statistics.isAccurateEV(estimatedAvgPlaceList.get(placeName).avg, numberOfN, estimatedAvgPlaceList.get(placeName).variance,
-                getConfigParser().getAccuracy(), getConfigParser().getAlpha())) {
+                getConfigParser().getMaxRelError(), getConfigParser().getAlpha())) {
             return StabilityEnum.stable;
         } else if (Statistics.isAccurateEV(estimatedAvgDiffPlaceList.get(placeName).avg, numberOfN, estimatedAvgDiffPlaceList.get(placeName).variance,
-                getConfigParser().getAccuracy(), getConfigParser().getAlpha())) {
+                getConfigParser().getMaxRelError(), getConfigParser().getAlpha())) {
             return StabilityEnum.unstable;
-        } else if (THRESHOLD > Statistics.getAbsError(estimatedAvgPlaceList.get(placeName).avg, getConfigParser().getAccuracy())
-                && THRESHOLD > Statistics.getAbsError(estimatedAvgDiffPlaceList.get(placeName).avg, getConfigParser().getAccuracy())) {
+        } else if (THRESHOLD > Statistics.getAbsError(estimatedAvgPlaceList.get(placeName).avg, getConfigParser().getMaxRelError())
+                && THRESHOLD > Statistics.getAbsError(estimatedAvgDiffPlaceList.get(placeName).avg, getConfigParser().getMaxRelError())) {
             return StabilityEnum.underthreshold;
         } else {
             return StabilityEnum.unknown;

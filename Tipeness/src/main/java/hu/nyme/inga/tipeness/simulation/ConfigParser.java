@@ -55,8 +55,8 @@ public class ConfigParser {
     private double terminatingTime;
     private double warmupLength;
     private double alpha;
-    private int minNumOfN;
-    private double accuracy;
+    private int minSampleSize;
+    private double maxRelError;
     private int batch;
     private static String outFileNamePath;
 
@@ -474,20 +474,20 @@ public class ConfigParser {
         XPath xpath = XPathFactory.newInstance().newXPath();
 
         try {
-            minNumOfN = Integer.parseInt(xpath.evaluate("//system/minnumofn", doc));
+            minSampleSize = Integer.parseInt(xpath.evaluate("//system/minsamplesize", doc));
         } catch (NumberFormatException ne) {
-            if (!xpath.evaluate("//system/minnumofn", doc).equals("")) {
-                ShowError.showError(ShowError.ErrorType.wrongNumberOfN, true);
+            if (!xpath.evaluate("//system/minsamplesize", doc).equals("")) {
+                ShowError.showError(ShowError.ErrorType.wrongMinSampleSize, true);
             }
-            minNumOfN = 30;
+            minSampleSize = 30;
         }
         try {
-            alpha = 1 - Double.parseDouble(xpath.evaluate("//system/confidence", doc));
+            alpha = 1 - Double.parseDouble(xpath.evaluate("//system/confidencelevel", doc));
             if (alpha < 0 || alpha > 1) {
                 ShowError.showError(ShowError.ErrorType.wrongAlphaValue, true);
             }
         } catch (Exception e) {
-            if (!xpath.evaluate("//system/confidence", doc).equals("")) {
+            if (!xpath.evaluate("//system/confidencelevel", doc).equals("")) {
                 ShowError.showError(ShowError.ErrorType.wrongAlphaValue, true);
             }
         }
@@ -555,13 +555,13 @@ public class ConfigParser {
             outFileNamePath = System.getProperty("user.dir") + "/" + SimulationMain.inputFilePath.replace(".xml", ".txt");
         }
         try {
-            accuracy = Double.parseDouble(xpath.evaluate("//system/accuracy", doc));
-            if (accuracy < 0) {
-                ShowError.showError(ShowError.ErrorType.wrongAccuracy, true);
+            maxRelError = Double.parseDouble(xpath.evaluate("//system/maxrelerror", doc));
+            if (maxRelError < 0) {
+                ShowError.showError(ShowError.ErrorType.wrongRelErrorValue, true);
             }
 
         } catch (NumberFormatException ne) {
-            ShowError.showError(ShowError.ErrorType.wrongAccuracy, true);
+            ShowError.showError(ShowError.ErrorType.wrongRelErrorValue, true);
         }
     }
 
@@ -686,7 +686,7 @@ public class ConfigParser {
             sumTime = mUnitStat.sumLength;
         }
         sb.append("Warmup time: ").append(warmupLength).append(nl);
-        sb.append("Accuracy: ").append(accuracy).append(nl);
+        sb.append("Accuracy: ").append(maxRelError).append(nl);
         sb.append("Confidencelevel: ").append(1 - alpha).append(nl);
         sb.append("Runtime: ").append(sumTime).append(nl);
         sb.append(numberOfNString).append(nl);
@@ -723,12 +723,12 @@ public class ConfigParser {
         return alpha;
     }
 
-    public int getMinNumOfN() {
-        return minNumOfN;
+    public int getMinSampleSize() {
+        return minSampleSize;
     }
 
-    public double getAccuracy() {
-        return accuracy;
+    public double getMaxRelError() {
+        return maxRelError;
     }
 
     public int getBatch() {

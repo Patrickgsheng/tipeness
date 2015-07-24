@@ -55,7 +55,7 @@ public abstract class MeasureUnitStatistic {
         }
         for (String placeName : configParser.getWatchAvgTokenList()) {
             if (!Statistics.isAccurateEV(estimatedAvgPlaceList.get(placeName).avg, numberOfN, estimatedAvgPlaceList.get(placeName).variance,
-                    configParser.getAccuracy(), configParser.getAlpha())) {
+                    configParser.getMaxRelError(), configParser.getAlpha())) {
                 return false;
             }
         }

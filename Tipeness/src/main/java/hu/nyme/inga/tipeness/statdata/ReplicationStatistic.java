@@ -57,7 +57,7 @@ public class ReplicationStatistic extends MeasureUnitStatistic {
 
     @Override
     public boolean isAccurate() {
-        if (this.numberOfN < getConfigParser().getMinNumOfN()) {
+        if (this.numberOfN < getConfigParser().getMinSampleSize()) {
             return false;
         }
         return (super.areAvgTokenNumEstimatesAccurate() && areTokenNumEstimatesAccurate());
@@ -66,7 +66,7 @@ public class ReplicationStatistic extends MeasureUnitStatistic {
     protected boolean areTokenNumEstimatesAccurate() {
         for (String placeName : getConfigParser().getWatchTokenList()) {
             if (!Statistics.isAccurateEV(esimatedTokenList.get(placeName).avg, numberOfN, esimatedTokenList.get(placeName).variance,
-                    getConfigParser().getAccuracy(), getConfigParser().getAlpha())) {
+                    getConfigParser().getMaxRelError(), getConfigParser().getAlpha())) {
                 return false;
             }
         }
