@@ -80,41 +80,40 @@ public class ConfigParser {
             memoryMatrix = readMemoryPolicies(paramFilePath);
             readRunParams(paramFilePath);
         } catch (XPathExpressionException xe) {
-            System.err.println("XPathExpressionExcetion thrown!");
-            System.err.println(Arrays.toString(xe.getStackTrace()));
+            System.out.println("XPathExpressionExcetion thrown!");
+            System.out.println(Arrays.toString(xe.getStackTrace()));
             System.exit(-1);
         } catch (SAXException se) {
-            System.err.println("SAXException thrown!");
-            System.err.println(Arrays.toString(se.getStackTrace()));
+            System.out.println("SAXException thrown!");
+            System.out.println(Arrays.toString(se.getStackTrace()));
             System.exit(-1);
         } catch (ParserConfigurationException pe) {
-            System.err.println("ParserConfigurationException thrown!");
-            System.err.println(Arrays.toString(pe.getStackTrace()));
+            System.out.println("ParserConfigurationException thrown!");
+            System.out.println(Arrays.toString(pe.getStackTrace()));
             System.exit(-1);
         } catch (IOException ie) {
-            System.err.println("IOException thrown!");
-            System.err.println(Arrays.toString(ie.getStackTrace()));
+            System.out.println("IOException thrown!");
+            System.out.println(Arrays.toString(ie.getStackTrace()));
             System.exit(-1);
         }
     }
 
-    private Transition readGeneralTransitionParams(Node file, XPath xpath) throws XPathExpressionException {
-        String transitionName = "";
+    private Transition readGeneralTransitionParams(Node file, XPath xpath) throws XPathExpressionException {        
         HashMap<String, Integer> inplaces = new HashMap<>();
         HashMap<String, Integer> inhibplaces = new HashMap<>();
         HashMap<String, Integer> outplaces = new HashMap<>();
 
-        if (isViableTransitionName(xpath.evaluate("name", file))) {
-            transitionName = xpath.evaluate("name", file);
-        } else {
+        String transitionName= xpath.evaluate("name", file).toLowerCase();
+        if (!isViableTransitionName(transitionName)) {
             ShowError.showError(ShowError.ErrorType.wrongTransName, true);
         }
+        
         XPathExpression transitionInhibitorExpression = xpath.compile("inhibitor");
         NodeList inhibitorNodeList = (NodeList) transitionInhibitorExpression.evaluate(file, XPathConstants.NODESET);
         for (int j = 0; j < inhibitorNodeList.getLength(); j++) {
             Node inhibitorNode = inhibitorNodeList.item(j);
 
-            String inhibitorName = xpath.evaluate("name", inhibitorNode);
+            String inhibitorName = xpath.evaluate("name", inhibitorNode).toLowerCase();
             int arcWeight;
 
             Place addPlace = getViablePlace(inhibplaces, inhibitorName);
@@ -138,7 +137,7 @@ public class ConfigParser {
         for (int j = 0; j < inplaceNodeList.getLength(); j++) {
             Node inplaceNode = inplaceNodeList.item(j);
             int arcWeight;
-            String inplaceName = xpath.evaluate("name", inplaceNode);
+            String inplaceName = xpath.evaluate("name", inplaceNode).toLowerCase();
 
             Place addPlace = getViablePlace(inplaces, inplaceName);
             if (addPlace != null) {
@@ -161,7 +160,7 @@ public class ConfigParser {
         for (int j = 0; j < outputPlaceNodeList.getLength(); j++) {
             Node outputPlaceNode = outputPlaceNodeList.item(j);
 
-            String outplaceName = xpath.evaluate("name", outputPlaceNode);
+            String outplaceName = xpath.evaluate("name", outputPlaceNode).toLowerCase();
             int arcWeight;
 
             Place addPlace = getViablePlace(outplaces, outplaceName);
@@ -220,7 +219,7 @@ public class ConfigParser {
                 weight = 1;
             }
             try {
-                conString = xpath.evaluate("condition", immediateTransitionNode);
+                conString = xpath.evaluate("condition", immediateTransitionNode).toLowerCase();
                 if (conString.equals("")) {
                     immediateTransitions.put(generalTrans.getName(), new ImmedTransition(generalTrans.getName(), priority, weight, generalTrans.getInput(), generalTrans.getOutput(), generalTrans.getInhibitor()));
 
@@ -239,6 +238,7 @@ public class ConfigParser {
     private HashMap<String, Place> readPlaceParams(String paramFilePath) throws XPathExpressionException,
             ParserConfigurationException, SAXException, IOException {
 
+        HashMap<String, Place> readPlaces= new HashMap<>();
         File parameterFile = new File(paramFilePath);
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -247,15 +247,13 @@ public class ConfigParser {
         XPathExpression readPlaceExpression = xpath.compile("//petrinet/place");
         NodeList placeNodeList = (NodeList) readPlaceExpression.evaluate(doc, XPathConstants.NODESET);
 
-        for (int i = 0; i < placeNodeList.getLength(); i++) {
-            String placeName = null;
+        for (int i = 0; i < placeNodeList.getLength(); i++) {            
             Node placeNode = placeNodeList.item(i);
             int initialToken;
 
-            if (isViablePlaceName(xpath.evaluate("name", placeNode))) {
-                placeName = xpath.evaluate("name", placeNode);
-            } else {
-                ShowError.showError(ShowError.ErrorType.wrongPlaceName, true);
+            String placeName=xpath.evaluate("name", placeNode).toLowerCase();
+            if (!isViablePlaceName(placeName)) {
+                ShowError.showError(ShowError.ErrorType.wrongPlaceName, true, placeName);
             }
             try {
                 initialToken = Integer.parseInt(xpath.evaluate("token", placeNode));
@@ -265,15 +263,17 @@ public class ConfigParser {
                 }
                 initialToken = 0;
             }
-            places.put(placeName, new Place(placeName, initialToken));
+            readPlaces.put(placeName, new Place(placeName, initialToken));
 
         }
-        return places;
+        return readPlaces;
     }
 
     private HashMap<String, TimedTransition> readMemoryTransitions(String paramFilePath) throws XPathExpressionException,
             ParserConfigurationException, SAXException, IOException {
 
+        
+        HashMap<String, TimedTransition> readMemoryTransitions= new HashMap<>();
         File parameterFile = new File(paramFilePath);
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -286,7 +286,7 @@ public class ConfigParser {
         for (int i = 0; i < exponentialTransitionNodeList.getLength(); i++) {
             Node memoryTransitionNode = exponentialTransitionNodeList.item(i);
             ExpTransition exponentialTransition = readGeneralExpTransition(memoryTransitionNode, xpath);
-            memoryTransitions.put(exponentialTransition.getName(), exponentialTransition);
+            readMemoryTransitions.put(exponentialTransition.getName(), exponentialTransition);
         }
 
         XPathExpression readDeterministicTransitionExpression = xpath.compile("//petrinet/dettransition");
@@ -295,7 +295,7 @@ public class ConfigParser {
         for (int i = 0; i < deterministicTransitionNodeList.getLength(); i++) {
             Node deterministicTransitionNode = deterministicTransitionNodeList.item(i);
             DelayedTransition deterministicTransition = readGeneralDelayedTransition(deterministicTransitionNode, xpath);
-            memoryTransitions.put(deterministicTransition.getName(), new DetTransition(deterministicTransition.getName(), deterministicTransition.getDelay(),
+            readMemoryTransitions.put(deterministicTransition.getName(), new DetTransition(deterministicTransition.getName(), deterministicTransition.getDelay(),
                     deterministicTransition.getInput(), deterministicTransition.getOutput(), deterministicTransition.getInhibitor()));
         }
 
@@ -306,7 +306,7 @@ public class ConfigParser {
 
             Node gammaTransitionNode = gammaTransitionNodeList.item(i);
             GammaTransition gammaTransition = readGeneralGammaTransition(gammaTransitionNode, xpath);
-            memoryTransitions.put(gammaTransition.getName(), gammaTransition);
+            readMemoryTransitions.put(gammaTransition.getName(), gammaTransition);
         }
 
         XPathExpression readNormalTransitionExpression = xpath.compile("//petrinet/normaltransition");
@@ -315,10 +315,10 @@ public class ConfigParser {
         for (int i = 0; i < normalTransitionNodeList.getLength(); i++) {
             Node normalTransitionNode = normalTransitionNodeList.item(i);
             TruncNormalTransition genTrans = readGeneralNormalTransition(normalTransitionNode, xpath);
-            memoryTransitions.put(genTrans.getName(), genTrans);
+            readMemoryTransitions.put(genTrans.getName(), genTrans);
         }
 
-        return memoryTransitions;
+        return readMemoryTransitions;
 
     }
 
@@ -347,7 +347,7 @@ public class ConfigParser {
 
         for (int i = 0; i < transitionNodeList.getLength(); i++) {
             Node transitionNode = transitionNodeList.item(i);
-            String transName = xpath.evaluate("name", transitionNode);
+            String transName = xpath.evaluate("name", transitionNode).toLowerCase();
             transitionTypeMemoryMatrix.put(transName, readMemoryPolicyAtTransition(transitionNode, xpath));
         }
         return transitionTypeMemoryMatrix;
@@ -356,13 +356,13 @@ public class ConfigParser {
     private HashMap<String, MemoryPolicy> readMemoryPolicyAtTransition(Node transitionNode, XPath xpath) throws XPathExpressionException {
         HashMap<String, MemoryPolicy> memoryPoliciesAtTransition = new HashMap<>();
 
-        String transitionName = xpath.evaluate("name", transitionNode);
+        String transitionName = xpath.evaluate("name", transitionNode).toLowerCase();
 
         XPathExpression memoryTransitionsExpression = xpath.compile("memory");
         NodeList memoryTransitionNodeList = (NodeList) memoryTransitionsExpression.evaluate(transitionNode, XPathConstants.NODESET);
         for (int j = 0; j < memoryTransitionNodeList.getLength(); j++) {
             Node memoryTransitionNode = memoryTransitionNodeList.item(j);
-            String memoryTransName = xpath.evaluate("name", memoryTransitionNode);
+            String memoryTransName = xpath.evaluate("name", memoryTransitionNode).toLowerCase();
             if (memoryTransitions.containsKey(memoryTransName)) {
                 String serverTypeString = xpath.evaluate("policy", memoryTransitionNode);
                 switch (serverTypeString) {
