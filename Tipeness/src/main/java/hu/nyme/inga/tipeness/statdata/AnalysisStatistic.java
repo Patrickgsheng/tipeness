@@ -17,7 +17,7 @@ public class AnalysisStatistic extends BatchAbstractStatistic {
 
     public enum StabilityEnum {
 
-        stable, unstable, underthreshold, unknown
+        stable, unstable, unpredictable, underthreshold, unknown
     };
 
     private HashMap<String, StabilityEnum> stabilityList;
@@ -34,7 +34,7 @@ public class AnalysisStatistic extends BatchAbstractStatistic {
             return false;
         }
         for (String placeName : getConfigParser().getPlaces().keySet()) {
-            if (getPlaceStability(placeName) == StabilityEnum.unknown) {
+            if (getPlaceStability(placeName) == StabilityEnum.unknown) {                
                 return false;
             }
         }
@@ -60,6 +60,12 @@ public class AnalysisStatistic extends BatchAbstractStatistic {
                             .append(")").append(", (diff: ")
                             .append(estimatedAvgDiffPlaceList.get(placeName).avg).append(")").append(nl);
                     break;
+                case unpredictable:
+                    sb.append("Stability at the ").append(placeName).append(" place can not be determined (both the average tokennumber and the average difference reached"
+                            + "the given accuracy)! We recommend increasing the batch size and reducing the value of the maximal relaitve error! (avg: ").append(estimatedAvgPlaceList.get(placeName).avg)
+                            .append(")").append(", (diff: ")
+                            .append(estimatedAvgDiffPlaceList.get(placeName).avg).append(")").append(nl);
+                    break;
                 case underthreshold:
                     sb.append(placeName).append(" is stable, but it is not recommended as significant place!").append(nl);
                     break;
@@ -69,21 +75,20 @@ public class AnalysisStatistic extends BatchAbstractStatistic {
             }
         }
         return sb.toString();
-    }
-
+    }    
+    
     private StabilityEnum getPlaceStability(String placeName) {
         if (estimatedAvgDiffPlaceList.get(placeName).avg == 0 || estimatedAvgPlaceList.get(placeName).avg == 0) {
             return StabilityEnum.stable;
-        } else if (Statistics.isAccurateEV(estimatedAvgPlaceList.get(placeName).avg, numberOfN, estimatedAvgPlaceList.get(placeName).variance,
-                getConfigParser().getMaxRelError(), getConfigParser().getAlpha())) {
+        }else if (Statistics.hasEstimatedValueOf(0, estimatedAvgDiffPlaceList.get(placeName).avg, numberOfN, estimatedAvgDiffPlaceList.get(placeName).variance, getConfigParser().getAlpha()) 
+                && Statistics.isAccurateEV(estimatedAvgDiffPlaceList.get(placeName).avg, numberOfN, estimatedAvgDiffPlaceList.get(placeName).variance, getConfigParser().getMaxRelError(), getConfigParser().getAlpha())){
+            return StabilityEnum.unpredictable;
+        }
+        else if (Statistics.hasEstimatedValueOf(0, estimatedAvgDiffPlaceList.get(placeName).avg, numberOfN, estimatedAvgDiffPlaceList.get(placeName).variance, getConfigParser().getAlpha())){
             return StabilityEnum.stable;
-        } else if (Statistics.isAccurateEV(estimatedAvgDiffPlaceList.get(placeName).avg, numberOfN, estimatedAvgDiffPlaceList.get(placeName).variance,
-                getConfigParser().getMaxRelError(), getConfigParser().getAlpha())) {
+        }else if (Statistics.isAccurateEV(estimatedAvgDiffPlaceList.get(placeName).avg, numberOfN, estimatedAvgDiffPlaceList.get(placeName).variance, getConfigParser().getMaxRelError(), getConfigParser().getAlpha())){
             return StabilityEnum.unstable;
-        } else if (THRESHOLD > Statistics.getAbsError(estimatedAvgPlaceList.get(placeName).avg, getConfigParser().getMaxRelError())
-                && THRESHOLD > Statistics.getAbsError(estimatedAvgDiffPlaceList.get(placeName).avg, getConfigParser().getMaxRelError())) {
-            return StabilityEnum.underthreshold;
-        } else {
+        }else {
             return StabilityEnum.unknown;
         }
     }

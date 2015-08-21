@@ -94,7 +94,6 @@ public class SimulationMethod {
 
             if (currentBatch.hasUnitEnded()) {
                 analysisStat.update(netState, currentBatch);
-
                 currentBatch = new MeasureUnit(currentConfig);
 
             }

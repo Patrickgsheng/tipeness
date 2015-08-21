@@ -1,1 +1,1 @@
-java -jar Tipeness.jar mm3.xml
+java -jar Tipeness.jar holzteamBeta.xml

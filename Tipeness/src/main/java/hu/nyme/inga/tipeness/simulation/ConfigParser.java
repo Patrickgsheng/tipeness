@@ -489,6 +489,8 @@ public class ConfigParser {
         } catch (Exception e) {
             if (!xpath.evaluate("//system/confidencelevel", doc).equals("")) {
                 ShowError.showError(ShowError.ErrorType.wrongAlphaValue, true);
+            }else{
+                alpha=0.5;
             }
         }
         watchAvgTokenList = readTokenList(doc, xpath, "avgtoken");

@@ -6,6 +6,7 @@ package hu.nyme.inga.tipeness.statistics;
 
 import java.util.HashMap;
 import java.util.Random;
+import umontreal.iro.lecuyer.probdist.StudentDist;
 import umontreal.iro.lecuyer.probdist.StudentDistQuick;
 
 /**
@@ -68,6 +69,16 @@ public class Statistics {
         double conferror = StudentDistQuick.inverseF(n, 1 - (alpha / 2)) * deviation / Math.sqrt(n);
         return (conferror <= relerror);
 
+    }
+    
+    public static boolean hasEstimatedValueOf(double expectedValue, double avg, int n, double variance, double alpha) {
+        double tCriticalMin=StudentDist.inverseF(n-1, alpha/2);
+        double tCriticalMax=StudentDist.inverseF(n-1, 1-(alpha/2));
+        double deviation = Math.sqrt(variance);       
+        
+        double tTrial=(avg-expectedValue)/(deviation/Math.sqrt(n));        
+        return (tCriticalMin<tTrial && tTrial<tCriticalMax);
+        
     }
 
     public static String getRandomElementFromWeightedElements(HashMap<String, Double> concurrentImmedTransitions)

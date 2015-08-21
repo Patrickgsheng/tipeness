@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+
 <petrinet>
        <place>		
 		<name>buffer</name>
@@ -62,13 +62,12 @@
 			
 	</exptransition>	
 	
-       <system>	
-		<minsamplesize>200</minsamplesize>	
-		<method>batch</method>
-		<terminatingtime>10000</terminatingtime>
+       <system>				
+		<method>analysis</method>
+		
 		<confidencelevel>0.95</confidencelevel>					
 		<batch>5000</batch>
-		<maxrelerror>0.05</maxrelerror>		
+		<maxrelerror>0.25</maxrelerror>		
 		<avgtoken>server</avgtoken>	
 		<avgtoken>buffer</avgtoken>
 		<difftoken>served</difftoken>
