@@ -1,0 +1,1 @@
+java -jar Tipeness.jar holzteamBeta2.xml

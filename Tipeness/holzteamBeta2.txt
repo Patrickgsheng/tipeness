@@ -1,0 +1,377 @@
+PETRI NET:
+
+Places:
+
+Placename: inputplane
+Tokennumber: 0
+---------------------------------
+Placename: dedicatedsand2
+Tokennumber: 1
+---------------------------------
+Placename: dedicatedsand1
+Tokennumber: 1
+---------------------------------
+Placename: inputprimer
+Tokennumber: 0
+---------------------------------
+Placename: dedicatedglaze
+Tokennumber: 1
+---------------------------------
+Placename: dipped
+Tokennumber: 0
+---------------------------------
+Placename: readyworkers1
+Tokennumber: 0
+---------------------------------
+Placename: coated
+Tokennumber: 0
+---------------------------------
+Placename: inputtok
+Tokennumber: 0
+---------------------------------
+Placename: releasedworkers
+Tokennumber: 0
+---------------------------------
+Placename: inputdip
+Tokennumber: 0
+---------------------------------
+Placename: arrived
+Tokennumber: 0
+---------------------------------
+Placename: glued
+Tokennumber: 0
+---------------------------------
+Placename: dedicatedcoat
+Tokennumber: 1
+---------------------------------
+Placename: dedicatedcutplanemold
+Tokennumber: 2
+---------------------------------
+Placename: cutmembers
+Tokennumber: 0
+---------------------------------
+Placename: inputsand1
+Tokennumber: 0
+---------------------------------
+Placename: assembled
+Tokennumber: 0
+---------------------------------
+Placename: inputsand2
+Tokennumber: 0
+---------------------------------
+Placename: glazed
+Tokennumber: 0
+---------------------------------
+Placename: dedicatedassemble
+Tokennumber: 1
+---------------------------------
+Placename: totok
+Tokennumber: 0
+---------------------------------
+Placename: dedicatedtok
+Tokennumber: 1
+---------------------------------
+Placename: sanded
+Tokennumber: 0
+---------------------------------
+Placename: joined
+Tokennumber: 0
+---------------------------------
+Placename: dedicatedprimer
+Tokennumber: 1
+---------------------------------
+Placename: accepted
+Tokennumber: 0
+---------------------------------
+Placename: inputcoat
+Tokennumber: 0
+---------------------------------
+Placename: inputmold
+Tokennumber: 0
+---------------------------------
+Placename: inputassemble
+Tokennumber: 0
+---------------------------------
+Placename: inputglaze
+Tokennumber: 0
+---------------------------------
+Placename: enoughresources
+Tokennumber: 0
+---------------------------------
+Placename: primerapplied
+Tokennumber: 0
+---------------------------------
+Placename: inputcut
+Tokennumber: 0
+---------------------------------
+Placename: planed
+Tokennumber: 0
+---------------------------------
+Placename: molded
+Tokennumber: 0
+---------------------------------
+Placename: dedicatedgluedip
+Tokennumber: 1
+---------------------------------
+Placename: inputglue
+Tokennumber: 0
+---------------------------------
+Placename: toked
+Tokennumber: 0
+---------------------------------
+Placename: readyworkers3
+Tokennumber: 0
+---------------------------------
+Placename: readyworkers2
+Tokennumber: 0
+---------------------------------
+Placename: toassemble
+Tokennumber: 0
+---------------------------------
+
+Transitions:
+
+Transition name: startsand2
+Transition type: ImmedTransition
+Input places:
+dedicatedsand2, 1
+dipped, 1
+Output places:
+inputsand2, 1
+Priority: 1.0
+Weight: 1.0
+---------------------------------
+Transition name: movetotokandassemble
+Transition type: ImmedTransition
+Input places:
+coated, 2
+Output places:
+totok, 1
+toassemble, 1
+Priority: 1.0
+Weight: 1.0
+---------------------------------
+Transition name: startassemble
+Transition type: ImmedTransition
+Input places:
+dedicatedassemble, 1
+toassemble, 1
+Output places:
+inputassemble, 1
+Priority: 1.0
+Weight: 1.0
+---------------------------------
+Transition name: startsand1
+Transition type: ImmedTransition
+Input places:
+dedicatedsand1, 1
+dipped, 1
+Output places:
+inputsand1, 1
+Priority: 1.0
+Weight: 1.0
+---------------------------------
+Transition name: startglue
+Transition type: ImmedTransition
+Input places:
+molded, 4
+dedicatedgluedip, 1
+Output places:
+inputglue, 1
+Priority: 1.0
+Weight: 1.0
+---------------------------------
+Transition name: startglaze
+Transition type: ImmedTransition
+Input places:
+dedicatedglaze, 1
+assembled, 1
+Output places:
+inputglaze, 1
+Priority: 1.0
+Weight: 1.0
+---------------------------------
+Transition name: accept
+Transition type: ImmedTransition
+Input places:
+arrived, 1
+Output places:
+accepted, 8
+Priority: 1.0
+Weight: 1.0
+---------------------------------
+Transition name: atleast2worker2
+Transition type: ImmedTransition
+Input places:
+dedicatedassemble, 1
+dedicatedtok, 1
+toked, 1
+glazed, 1
+Output places:
+enoughresources, 1
+readyworkers2, 1
+Priority: 5.0
+Weight: 1.0
+---------------------------------
+Transition name: starttok
+Transition type: ImmedTransition
+Input places:
+totok, 1
+dedicatedtok, 1
+Output places:
+inputtok, 1
+Priority: 1.0
+Weight: 1.0
+---------------------------------
+Transition name: atleast2worker3
+Transition type: ImmedTransition
+Input places:
+dedicatedglaze, 1
+dedicatedtok, 1
+toked, 1
+glazed, 1
+Output places:
+enoughresources, 1
+readyworkers3, 1
+Priority: 5.0
+Weight: 1.0
+---------------------------------
+Transition name: startprimer
+Transition type: ImmedTransition
+Input places:
+sanded, 1
+dedicatedprimer, 1
+Output places:
+inputprimer, 1
+Priority: 1.0
+Weight: 1.0
+---------------------------------
+Transition name: startdip
+Transition type: ImmedTransition
+Input places:
+glued, 1
+dedicatedgluedip, 1
+Output places:
+inputdip, 1
+Priority: 1.0
+Weight: 1.0
+---------------------------------
+Transition name: startcut
+Transition type: ImmedTransition
+Input places:
+dedicatedcutplanemold, 1
+accepted, 1
+Output places:
+inputcut, 1
+Priority: 1.0
+Weight: 1.0
+---------------------------------
+Transition name: startmold
+Transition type: ImmedTransition
+Input places:
+dedicatedcutplanemold, 1
+planed, 1
+Output places:
+inputmold, 1
+Priority: 1.0
+Weight: 1.0
+---------------------------------
+Transition name: freeworkers1
+Transition type: ImmedTransition
+Input places:
+readyworkers1, 1
+releasedworkers, 1
+Output places:
+dedicatedassemble, 1
+dedicatedglaze, 1
+Priority: 1.0
+Weight: 1.0
+---------------------------------
+Transition name: startplane
+Transition type: ImmedTransition
+Input places:
+dedicatedcutplanemold, 1
+cutmembers, 1
+Output places:
+inputplane, 1
+Priority: 1.0
+Weight: 1.0
+---------------------------------
+Transition name: startcoat
+Transition type: ImmedTransition
+Input places:
+dedicatedcoat, 1
+primerapplied, 1
+Output places:
+inputcoat, 1
+Priority: 1.0
+Weight: 1.0
+---------------------------------
+Transition name: atleast2worker1
+Transition type: ImmedTransition
+Input places:
+dedicatedassemble, 1
+dedicatedglaze, 1
+toked, 1
+glazed, 1
+Output places:
+enoughresources, 1
+readyworkers1, 1
+Priority: 10.0
+Weight: 1.0
+---------------------------------
+Transition name: freeworkers2
+Transition type: ImmedTransition
+Input places:
+readyworkers2, 1
+releasedworkers, 1
+Output places:
+dedicatedassemble, 1
+dedicatedtok, 1
+Priority: 1.0
+Weight: 1.0
+---------------------------------
+Transition name: freeworkers3
+Transition type: ImmedTransition
+Input places:
+readyworkers3, 1
+releasedworkers, 1
+Output places:
+dedicatedglaze, 1
+dedicatedtok, 1
+Priority: 1.0
+Weight: 1.0
+---------------------------------
+
+Transition name: plane
+Transition type: DetTransition
+Input places:
+inputplane, 1
+Output places:
+dedicatedcutplanemold, 1
+planed, 1
+Delay: 0.0104
+-------------------------------------------
+Transition name: applyprimer
+Transition type: DetTransition
+Input places:
+inputprimer, 1
+Output places:
+primerapplied, 1
+dedicatedprimer, 1
+Delay: 0.1111
+-------------------------------------------
+Transition name: cut
+Transition type: DetTransition
+Input places:
+inputcut, 1
+Output places:
+dedicatedcutplanemold, 1
+cutmembers, 1
+Delay: 0.0556
+-------------------------------------------
+Transition name: glue
+Transition type: DetTransition
+Input places:
+inputglue, 1
+Output pla

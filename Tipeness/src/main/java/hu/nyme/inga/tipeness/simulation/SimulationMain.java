@@ -20,8 +20,7 @@ public class SimulationMain {
     static String inputFilePath;
 
     public static void main(String[] args) {
-        //inputFilePath = args[0];     
-        inputFilePath= "holzteamBeta.xml";
+        inputFilePath = args[0];        
         SimulationUnit simUnit = new SimulationUnit(inputFilePath);
         try {
             fileWriter = new FileWriter(simUnit.getConfigParser().getOutFileNamePath(), true);

@@ -504,45 +504,593 @@ Runtime: 0.0
 
 RESULTS: 
 
-inputplane is stable! (avg: 0.08960017218406191), (diff: -2.481458127060549E-7)
-dedicatedsand2 is stable! (avg: 0.7846094856863494), (diff: 6.50906905113688E-6)
-dedicatedsand1 is stable! (avg: 0.7846364888223476), (diff: -5.173681089411889E-6)
-inputprimer is stable! (avg: 0.2392838611582206), (diff: 1.003591065829468E-6)
-dedicatedglaze is stable! (avg: 0.6303083389370155), (diff: -2.9996703636603986E-6)
+inputplane is stable! (avg: 0.08959428943214989), (diff: -7.328891385958433E-6)
+dedicatedsand2 is stable! (avg: 0.7840778559328067), (diff: -1.1960997764469623E-5)
+dedicatedsand1 is stable! (avg: 0.7854531236899719), (diff: -2.0449899865394134E-5)
+inputprimer is stable! (avg: 0.23912554081740728), (diff: 1.894964886261407E-5)
+dedicatedglaze is stable! (avg: 0.6305538652430199), (diff: -3.0117391292797822E-5)
 dipped is stable! (avg: 0.0), (diff: 0.0)
-readyworkers1 is stable! (avg: 0.009327642636266616), (diff: 9.303223748699871E-7)
-coated is stable! (avg: 0.4999322693841259), (diff: 4.08058613694301E-5)
-inputtok is stable! (avg: 0.2692200963613838), (diff: 2.128350978404243E-6)
+readyworkers1 is stable! (avg: 0.00931743905307721), (diff: 4.270643403521287E-7)
+coated is stable! (avg: 0.4999932530180627), (diff: -1.799996797102807E-5)
+inputtok is stable! (avg: 0.2690410101583239), (diff: 2.132012932734363E-5)
 releasedworkers is stable! (avg: 0.0), (diff: 0.0)
-inputdip is stable! (avg: 0.0717205452419583), (diff: -2.6137855609122225E-7)
+inputdip is stable! (avg: 0.0716730918905272), (diff: 5.266041007490253E-6)
 arrived is stable! (avg: 0.0), (diff: 0.0)
 glued is stable! (avg: 0.0), (diff: 0.0)
-dedicatedcoat is stable! (avg: 0.7607161388417795), (diff: -1.0034818453036923E-6)
+dedicatedcoat is stable! (avg: 0.760875155326791), (diff: -1.8253418076745542E-5)
 dedicatedcutplanemold is stable! (avg: 0.0), (diff: 0.0)
-cutmembers is stable! (avg: 1172.8053942644326), (diff: 5.1794646116840415)
-inputsand1 is stable! (avg: 0.21536351117765234), (diff: 5.173681089417361E-6)
+cutmembers is stable! (avg: 770.3209447962846), (diff: 8.25605988245932)
+inputsand1 is stable! (avg: 0.21454687631002806), (diff: 2.0449899865398237E-5)
 assembled is stable! (avg: 0.0), (diff: 0.0)
-inputsand2 is stable! (avg: 0.21539051431365064), (diff: -6.509069051138619E-6)
-glazed is stable! (avg: 0.025341887888779207), (diff: -1.625576292393279E-5)
-dedicatedassemble is stable! (avg: 0.6317484381197359), (diff: -3.7864861411352653E-6)
+inputsand2 is stable! (avg: 0.2159221440671933), (diff: 1.196099776447041E-5)
+glazed is stable! (avg: 0.02542625326545982), (diff: 2.1238757951546045E-5)
+dedicatedassemble is stable! (avg: 0.6319970862052892), (diff: -2.8851404635310544E-5)
 totok is stable! (avg: 0.0), (diff: 0.0)
-dedicatedtok is stable! (avg: 0.7293388644092225), (diff: -1.2854321811606461E-6)
+dedicatedtok is stable! (avg: 0.7295148735937145), (diff: -2.174587515675137E-5)
 sanded is stable! (avg: 0.0), (diff: 0.0)
-joined is not stable! (avg: 63738.69475154229), (diff: 536.2378285516238)
-dedicatedprimer is stable! (avg: 0.7607161388417794), (diff: -1.0035910658272682E-6)
-accepted is not stable! (avg: 243266.8815635441), (diff: 2067.878069688782)
-inputcoat is stable! (avg: 0.2392838611582206), (diff: 1.0034818453179776E-6)
-inputmold is stable! (avg: 0.4307552912844758), (diff: -3.258189648240251E-6)
-inputassemble is stable! (avg: 0.3589239192439976), (diff: 2.856163766258539E-6)
-inputglaze is stable! (avg: 0.35892297919732463), (diff: 2.9122667860267858E-6)
-enoughresources is stable! (avg: 0.010768681865660356), (diff: 8.740357763493532E-8)
+joined is not stable! (avg: 63236.17712900174), (diff: 535.8174344399043)
+dedicatedprimer is stable! (avg: 0.7608744591825924), (diff: -1.894964886263255E-5)
+accepted is not stable! (avg: 241451.4241962435), (diff: 2060.522057458746)
+inputcoat is stable! (avg: 0.23912484467320894), (diff: 1.8253418076748605E-5)
+inputmold is stable! (avg: 0.4304707224623234), (diff: 2.943219584495147E-5)
+inputassemble is stable! (avg: 0.3586854747416338), (diff: 2.842434029496184E-5)
+inputglaze is stable! (avg: 0.3586845794559415), (diff: 2.926458112306027E-5)
+enoughresources is stable! (avg: 0.01076155530103852), (diff: 8.52810169746548E-7)
 primerapplied is stable! (avg: 0.0), (diff: 0.0)
-inputcut is stable! (avg: 0.4796445365314623), (diff: 3.5063354609414726E-6)
-planed is stable! (avg: 543.5598059808773), (diff: -0.09854340462090523)
-molded is stable! (avg: 1.5007808159299352), (diff: -3.359407729715529E-5)
-dedicatedgluedip is stable! (avg: 0.5692459745046154), (diff: 2.976858825774488E-6)
-inputglue is stable! (avg: 0.35903348025342613), (diff: -2.7154802696441313E-6)
-toked is stable! (avg: 0.47400888751164105), (diff: -1.2548024683840322E-5)
-readyworkers3 is stable! (avg: 0.001441039229393751), (diff: -8.42918797234855E-7)
+inputcut is stable! (avg: 0.4799349881055267), (diff: -2.2103304458996075E-5)
+planed is stable! (avg: 369.82436887135685), (diff: 2.9280061704082425)
+molded is stable! (avg: 1.5007726026184136), (diff: -1.0292097412522959E-4)
+dedicatedgluedip is stable! (avg: 0.5695298562563856), (diff: -3.075673439741741E-5)
+inputglue is stable! (avg: 0.3587970518530872), (diff: 2.549069338993762E-5)
+toked is stable! (avg: 0.473796383428558), (diff: 5.7682474783068974E-5)
+readyworkers3 is stable! (avg: 0.001444116247961311), (diff: 4.2574582939519595E-7)
 readyworkers2 is stable! (avg: 0.0), (diff: 0.0)
-toassemble is stable! (avg: 4.01975429233451E-5), (diff: 6.765866619943878E-8)
+toassemble is stable! (avg: 4.1086123847028274E-5), (diff: 7.492474085668014E-8)
+PETRI NET:
+
+Places:
+
+Placename: inputplane
+Tokennumber: 0
+---------------------------------
+Placename: dedicatedsand2
+Tokennumber: 1
+---------------------------------
+Placename: dedicatedsand1
+Tokennumber: 1
+---------------------------------
+Placename: inputprimer
+Tokennumber: 0
+---------------------------------
+Placename: dedicatedglaze
+Tokennumber: 1
+---------------------------------
+Placename: dipped
+Tokennumber: 0
+---------------------------------
+Placename: readyworkers1
+Tokennumber: 0
+---------------------------------
+Placename: coated
+Tokennumber: 0
+---------------------------------
+Placename: inputtok
+Tokennumber: 0
+---------------------------------
+Placename: releasedworkers
+Tokennumber: 0
+---------------------------------
+Placename: inputdip
+Tokennumber: 0
+---------------------------------
+Placename: arrived
+Tokennumber: 0
+---------------------------------
+Placename: glued
+Tokennumber: 0
+---------------------------------
+Placename: dedicatedcoat
+Tokennumber: 1
+---------------------------------
+Placename: dedicatedcutplanemold
+Tokennumber: 1
+---------------------------------
+Placename: cutmembers
+Tokennumber: 0
+---------------------------------
+Placename: inputsand1
+Tokennumber: 0
+---------------------------------
+Placename: assembled
+Tokennumber: 0
+---------------------------------
+Placename: inputsand2
+Tokennumber: 0
+---------------------------------
+Placename: glazed
+Tokennumber: 0
+---------------------------------
+Placename: dedicatedassemble
+Tokennumber: 1
+---------------------------------
+Placename: totok
+Tokennumber: 0
+---------------------------------
+Placename: dedicatedtok
+Tokennumber: 1
+---------------------------------
+Placename: sanded
+Tokennumber: 0
+---------------------------------
+Placename: joined
+Tokennumber: 0
+---------------------------------
+Placename: dedicatedprimer
+Tokennumber: 1
+---------------------------------
+Placename: accepted
+Tokennumber: 0
+---------------------------------
+Placename: inputcoat
+Tokennumber: 0
+---------------------------------
+Placename: inputmold
+Tokennumber: 0
+---------------------------------
+Placename: inputassemble
+Tokennumber: 0
+---------------------------------
+Placename: inputglaze
+Tokennumber: 0
+---------------------------------
+Placename: enoughresources
+Tokennumber: 0
+---------------------------------
+Placename: primerapplied
+Tokennumber: 0
+---------------------------------
+Placename: inputcut
+Tokennumber: 0
+---------------------------------
+Placename: planed
+Tokennumber: 0
+---------------------------------
+Placename: molded
+Tokennumber: 0
+---------------------------------
+Placename: dedicatedgluedip
+Tokennumber: 1
+---------------------------------
+Placename: inputglue
+Tokennumber: 0
+---------------------------------
+Placename: toked
+Tokennumber: 0
+---------------------------------
+Placename: readyworkers3
+Tokennumber: 0
+---------------------------------
+Placename: readyworkers2
+Tokennumber: 0
+---------------------------------
+Placename: toassemble
+Tokennumber: 0
+---------------------------------
+
+Transitions:
+
+Transition name: startsand2
+Transition type: ImmedTransition
+Input places:
+dedicatedsand2, 1
+dipped, 1
+Output places:
+inputsand2, 1
+Priority: 1.0
+Weight: 1.0
+---------------------------------
+Transition name: movetotokandassemble
+Transition type: ImmedTransition
+Input places:
+coated, 2
+Output places:
+totok, 1
+toassemble, 1
+Priority: 1.0
+Weight: 1.0
+---------------------------------
+Transition name: startassemble
+Transition type: ImmedTransition
+Input places:
+dedicatedassemble, 1
+toassemble, 1
+Output places:
+inputassemble, 1
+Priority: 1.0
+Weight: 1.0
+---------------------------------
+Transition name: startsand1
+Transition type: ImmedTransition
+Input places:
+dedicatedsand1, 1
+dipped, 1
+Output places:
+inputsand1, 1
+Priority: 1.0
+Weight: 1.0
+---------------------------------
+Transition name: startglue
+Transition type: ImmedTransition
+Input places:
+molded, 4
+dedicatedgluedip, 1
+Output places:
+inputglue, 1
+Priority: 1.0
+Weight: 1.0
+---------------------------------
+Transition name: startglaze
+Transition type: ImmedTransition
+Input places:
+dedicatedglaze, 1
+assembled, 1
+Output places:
+inputglaze, 1
+Priority: 1.0
+Weight: 1.0
+---------------------------------
+Transition name: accept
+Transition type: ImmedTransition
+Input places:
+arrived, 1
+Output places:
+accepted, 8
+Priority: 1.0
+Weight: 1.0
+---------------------------------
+Transition name: atleast2worker2
+Transition type: ImmedTransition
+Input places:
+dedicatedassemble, 1
+dedicatedtok, 1
+toked, 1
+glazed, 1
+Output places:
+enoughresources, 1
+readyworkers2, 1
+Priority: 5.0
+Weight: 1.0
+---------------------------------
+Transition name: starttok
+Transition type: ImmedTransition
+Input places:
+totok, 1
+dedicatedtok, 1
+Output places:
+inputtok, 1
+Priority: 1.0
+Weight: 1.0
+---------------------------------
+Transition name: atleast2worker3
+Transition type: ImmedTransition
+Input places:
+dedicatedglaze, 1
+dedicatedtok, 1
+toked, 1
+glazed, 1
+Output places:
+enoughresources, 1
+readyworkers3, 1
+Priority: 5.0
+Weight: 1.0
+---------------------------------
+Transition name: startprimer
+Transition type: ImmedTransition
+Input places:
+sanded, 1
+dedicatedprimer, 1
+Output places:
+inputprimer, 1
+Priority: 1.0
+Weight: 1.0
+---------------------------------
+Transition name: startdip
+Transition type: ImmedTransition
+Input places:
+glued, 1
+dedicatedgluedip, 1
+Output places:
+inputdip, 1
+Priority: 1.0
+Weight: 1.0
+---------------------------------
+Transition name: startcut
+Transition type: ImmedTransition
+Input places:
+dedicatedcutplanemold, 1
+accepted, 1
+Output places:
+inputcut, 1
+Priority: 1.0
+Weight: 1.0
+---------------------------------
+Transition name: startmold
+Transition type: ImmedTransition
+Input places:
+dedicatedcutplanemold, 1
+planed, 1
+Output places:
+inputmold, 1
+Priority: 1.0
+Weight: 1.0
+---------------------------------
+Transition name: freeworkers1
+Transition type: ImmedTransition
+Input places:
+readyworkers1, 1
+releasedworkers, 1
+Output places:
+dedicatedassemble, 1
+dedicatedglaze, 1
+Priority: 1.0
+Weight: 1.0
+---------------------------------
+Transition name: startplane
+Transition type: ImmedTransition
+Input places:
+dedicatedcutplanemold, 1
+cutmembers, 1
+Output places:
+inputplane, 1
+Priority: 1.0
+Weight: 1.0
+---------------------------------
+Transition name: startcoat
+Transition type: ImmedTransition
+Input places:
+dedicatedcoat, 1
+primerapplied, 1
+Output places:
+inputcoat, 1
+Priority: 1.0
+Weight: 1.0
+---------------------------------
+Transition name: atleast2worker1
+Transition type: ImmedTransition
+Input places:
+dedicatedassemble, 1
+dedicatedglaze, 1
+toked, 1
+glazed, 1
+Output places:
+enoughresources, 1
+readyworkers1, 1
+Priority: 10.0
+Weight: 1.0
+---------------------------------
+Transition name: freeworkers2
+Transition type: ImmedTransition
+Input places:
+readyworkers2, 1
+releasedworkers, 1
+Output places:
+dedicatedassemble, 1
+dedicatedtok, 1
+Priority: 1.0
+Weight: 1.0
+---------------------------------
+Transition name: freeworkers3
+Transition type: ImmedTransition
+Input places:
+readyworkers3, 1
+releasedworkers, 1
+Output places:
+dedicatedglaze, 1
+dedicatedtok, 1
+Priority: 1.0
+Weight: 1.0
+---------------------------------
+
+Transition name: plane
+Transition type: DetTransition
+Input places:
+inputplane, 1
+Output places:
+dedicatedcutplanemold, 1
+planed, 1
+Delay: 0.0104
+-------------------------------------------
+Transition name: applyprimer
+Transition type: DetTransition
+Input places:
+inputprimer, 1
+Output places:
+primerapplied, 1
+dedicatedprimer, 1
+Delay: 0.1111
+-------------------------------------------
+Transition name: cut
+Transition type: DetTransition
+Input places:
+inputcut, 1
+Output places:
+dedicatedcutplanemold, 1
+cutmembers, 1
+Delay: 0.0556
+-------------------------------------------
+Transition name: glue
+Transition type: DetTransition
+Input places:
+inputglue, 1
+Output places:
+glued, 1
+dedicatedgluedip, 1
+Delay: 0.1667
+-------------------------------------------
+Transition name: mold
+Transition type: DetTransition
+Input places:
+inputmold, 1
+Output places:
+dedicatedcutplanemold, 1
+molded, 1
+Delay: 0.05
+-------------------------------------------
+Transition name: dip
+Transition type: DetTransition
+Input places:
+inputdip, 1
+Output places:
+dipped, 1
+dedicatedgluedip, 1
+Delay: 0.0333
+-------------------------------------------
+Transition name: sand2
+Transition type: DetTransition
+Input places:
+inputsand2, 1
+Output places:
+dedicatedsand2, 1
+sanded, 1
+Delay: 0.2
+-------------------------------------------
+Transition name: assemble
+Transition type: DetTransition
+Input places:
+inputassemble, 1
+Output places:
+dedicatedassemble, 1
+assembled, 1
+Delay: 0.3333
+-------------------------------------------
+Transition name: sand1
+Transition type: DetTransition
+Input places:
+inputsand1, 1
+Output places:
+dedicatedsand1, 1
+sanded, 1
+Delay: 0.2
+-------------------------------------------
+Transition name: arriveaverage
+Transition type: ExpTransition
+Input places:
+Output places:
+arrived, 18
+Delay: 12.07
+Servertype: exclusive
+---------------------------------------------
+Transition name: coat
+Transition type: DetTransition
+Input places:
+inputcoat, 1
+Output places:
+dedicatedcoat, 1
+coated, 1
+Delay: 0.1111
+-------------------------------------------
+Transition name: tok
+Transition type: DetTransition
+Input places:
+inputtok, 1
+Output places:
+dedicatedtok, 1
+toked, 1
+Delay: 0.25
+-------------------------------------------
+Transition name: glaze
+Transition type: DetTransition
+Input places:
+inputglaze, 1
+Output places:
+dedicatedglaze, 1
+glazed, 1
+Delay: 0.3333
+-------------------------------------------
+Transition name: arrivesingle
+Transition type: ExpTransition
+Input places:
+Output places:
+arrived, 1
+Delay: 16.64
+Servertype: exclusive
+---------------------------------------------
+Transition name: join
+Transition type: DetTransition
+Input places:
+enoughresources, 1
+Output places:
+joined, 1
+releasedworkers, 1
+Delay: 0.01
+-------------------------------------------
+Transition name: arrivebig
+Transition type: ExpTransition
+Input places:
+Output places:
+arrived, 65
+Delay: 1392.0
+Servertype: exclusive
+---------------------------------------------
+
+MEMORY POLICIES:
+
+The default memory policy(enabling memory) is not listed!
+
+----------------------------------
+
+SIMULATION PARAMETERS:
+
+Method: Minimal sample size: 30
+Warmup time: 0.0
+Accuracy: 0.05
+Confidencelevel: 0.95
+Runtime: 0.0
+
+----------------------------------
+------------------------------
+
+RESULTS: 
+
+inputplane is stable! (avg: 0.08960248727144443), (diff: 5.469911781111133E-7)
+dedicatedsand2 is stable! (avg: 0.7850827208345015), (diff: -1.7195033944198147E-5)
+dedicatedsand1 is stable! (avg: 0.7845807792271364), (diff: -6.240007013489771E-6)
+inputprimer is stable! (avg: 0.23905187630327543), (diff: 1.296805299695362E-5)
+dedicatedglaze is stable! (avg: 0.6306663913741382), (diff: -2.1784669276009457E-5)
+dipped is stable! (avg: 0.0), (diff: 0.0)
+readyworkers1 is stable! (avg: 0.009317840083363333), (diff: 6.258940346072081E-7)
+coated is stable! (avg: 0.4997497303459397), (diff: -2.9619471006596354E-5)
+inputtok is stable! (avg: 0.26895835175480304), (diff: 1.562689346095785E-5)
+releasedworkers is stable! (avg: 0.0), (diff: 0.0)
+inputdip is stable! (avg: 0.07165102723695796), (diff: 3.4015447420134084E-6)
+arrived is stable! (avg: 0.0), (diff: 0.0)
+glued is stable! (avg: 0.0), (diff: 0.0)
+dedicatedcoat is stable! (avg: 0.7609489456261069), (diff: -1.2364081314144612E-5)
+dedicatedcutplanemold is stable! (avg: 0.0), (diff: 0.0)
+cutmembers is stable! (avg: 1483.3485708363723), (diff: 9.124171339010294)
+inputsand1 is stable! (avg: 0.2154192207728638), (diff: 6.240007013504288E-6)
+assembled is stable! (avg: 0.0), (diff: 0.0)
+inputsand2 is stable! (avg: 0.2149172791654984), (diff: 1.7195033944210538E-5)
+glazed is stable! (avg: 0.025261254491761993), (diff: -3.1307792302493763E-7)
+dedicatedassemble is stable! (avg: 0.6321068853585973), (diff: -2.1459794648021998E-5)
+totok is stable! (avg: 0.0), (diff: 0.0)
+dedicatedtok is stable! (avg: 0.7296011542607381), (diff: -1.5704468825375278E-5)
+sanded is stable! (avg: 0.0), (diff: 0.0)
+joined is not stable! (avg: 68586.71559760223), (diff: 535.8386699529228)
+dedicatedprimer is stable! (avg: 0.7609481236967245), (diff: -1.2968052996937092E-5)
+accepted is not stable! (avg: 262181.18345535465), (diff: 2061.1371413542615)
+inputcoat is stable! (avg: 0.23905105437389315), (diff: 1.2364081314144727E-5)
+inputmold is stable! (avg: 0.43033885281149026), (diff: 2.1082687888097855E-5)
+inputassemble is stable! (avg: 0.35857527455803934), (diff: 2.083390061342514E-5)
+inputglaze is stable! (avg: 0.3585752745580394), (diff: 2.1081199876985484E-5)
+enoughresources is stable! (avg: 0.010758334067821881), (diff: 7.034693990251885E-7)
+primerapplied is stable! (avg: 0.0), (diff: 0.0)
+inputcut is stable! (avg: 0.4800586599170653), (diff: -2.162967906620884E-5)
+planed is stable! (avg: 298.56725766202095), (diff: 4.431424688389743)
+molded is stable! (avg: 1.4991166768851556), (diff: 1.0024621659039727E-4)
+dedicatedgluedip is stable! (avg: 0.569662279712315), (diff: -2.154074917215144E-5)
+inputglue is stable! (avg: 0.3586866930507271), (diff: 1.813920443011106E-5)
+toked is stable! (avg: 0.47349332954476764), (diff: 2.5912469126189418E-5)
+readyworkers3 is stable! (avg: 0.001440493984458554), (diff: 7.757536441795667E-8)
+readyworkers2 is stable! (avg: 0.0), (diff: 0.0)
+toassemble is stable! (avg: 3.987769172988937E-5), (diff: -6.265998024480627E-8)
